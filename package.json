@@ -3,14 +3,26 @@
   "version": "1.0.0",
   "description": "St. Andrew's School Bike Finder",
   "main": "index.js",
+  "engines": {
+    "node": "8.2.1",
+    "npm": "5.3.0"
+  },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Leo Qiao",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "concurrently": "^3.5.0",
     "express": "^4.15.4",
     "mongoose": "^4.11.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
