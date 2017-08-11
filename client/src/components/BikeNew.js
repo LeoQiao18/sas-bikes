@@ -159,7 +159,7 @@ class BikeNew extends React.Component {
               <Dragger
                 {...draggerProps}
                 disabled={!this.state.allowUpload}
-                onRemove={this.deleteImage}
+                onRemove={this.deleteImage.bind(this)}
                 onChange={info => {
                   if (!!info.fileList.length === this.state.allowUpload) {
                     this.setState({ allowUpload: !this.state.allowUpload });
