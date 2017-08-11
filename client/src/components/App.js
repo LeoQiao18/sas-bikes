@@ -2,17 +2,18 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchBikes } from '../actions';
+import { message } from 'antd';
 
 import Template from './Template';
 import BikeNew from './BikeNew';
 import Dashboard from './Dashboard';
-
-const Help = () => <div>Help</div>;
+import Help from './Help';
 const NotFound = () => <div>NotFound</div>;
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchBikes();
+    const hide = message.loading('Loading bikes...', 0);
+    this.props.fetchBikes(hide);
   }
   render() {
     return (

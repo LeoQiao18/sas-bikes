@@ -24,11 +24,9 @@ module.exports = app => {
     const { folder, public_id } = req.params;
     cloudinary.v2.uploader.destroy(`${folder}/${public_id}`, (err, result) => {
       if (err) {
-        console.log('err', err);
         res.status(400).send(err);
       } else {
-        console.log('result', result);
-        res.status(200);
+        res.status(200).send(result);
       }
     });
   });

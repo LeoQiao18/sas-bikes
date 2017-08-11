@@ -96,7 +96,7 @@ class BikeNew extends React.Component {
 
     return (
       <div>
-        <h1 className="title">Register a New Bike</h1>
+        <h1 className="bike-new__title">Register a New Bike</h1>
         <Form onSubmit={this.handleSubmit} hideRequiredMark>
           {/* First Name */}
           <FormItem {...shortFormItemLayout} label="First Name" hasFeedback>
@@ -138,11 +138,13 @@ class BikeNew extends React.Component {
           <FormItem
             {...longFormItemLayout}
             label="Description"
-            extra="(Optional)"
+            extra="(Optional, 100 characters max.)"
             hasFeedback
           >
-            {getFieldDecorator('description')(
-              <Input placeholder="Please description of bike" />
+            {getFieldDecorator('description', {
+              rules: [{ max: 100, message: 'Please limit to 100 characters!' }]
+            })(
+              <Input placeholder="Describe your bike (max: 100 characters)" />
             )}
           </FormItem>
 
