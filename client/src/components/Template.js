@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import './Template.css';
 import logo from '../assets/bike-logo.png';
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content, Footer } = Layout;
 
 const menuItems = {
   '/': '1',
@@ -62,13 +62,18 @@ class Template extends React.Component {
           <Content
             style={{
               margin: '24px 16px',
+              marginBottom: 0,
               padding: 24,
               background: '#fff',
-              minHeight: 'calc(100vh - 64px - 48px)'
+              minHeight: 'calc(100vh - 64px - 24px - 66px)',
+              overflowY: 'scroll'
             }}
           >
             {this.props.children}
           </Content>
+          <Footer style={{ textAlign: 'center' }}>
+            SAS Bikes ©2017 Created by El Qiaopo
+          </Footer>
         </Layout>
       </Layout>
     );

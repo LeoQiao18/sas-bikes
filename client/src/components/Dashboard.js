@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Row, Col, Card } from 'antd';
+import { Row, Col, Card, BackTop } from 'antd';
 import DeleteBikeButton from './DeleteBikeButton';
 import './Dashboard.css';
 
@@ -67,6 +67,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
+        <BackTop />
         <Row gutter={16}>
           {this.renderContent()}
         </Row>
