@@ -14,7 +14,7 @@ const menuItems = {
 
 class Template extends React.Component {
   state = {
-    collapsed: false
+    collapsed: true
   };
   toggle = () => {
     this.setState({
