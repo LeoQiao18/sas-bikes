@@ -6,7 +6,7 @@ export default function(state = null, action) {
     case FETCH_BIKES:
       return action.payload;
     case ADD_BIKE:
-      return [...state, action.payload];
+      return [action.payload, ...state];
     case DELETE_BIKE:
       return _.filter(state, !_.matches(action.payload));
     default:
