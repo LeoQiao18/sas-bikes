@@ -9,14 +9,28 @@ module.exports = app => {
   });
 
   app.post('/api/bikes', async (req, res) => {
-    const { firstName, lastName, color, brand, description } = req.body;
+    const {
+      firstName,
+      lastName,
+      color,
+      brand,
+      description,
+      cloudinary_public_id,
+      image_url
+    } = req.body;
 
     const bike = await new Bike({
       owner: { firstName, lastName },
       color,
       brand,
-      description
+      description,
+      image_url,
+      cloudinary_public_id
     }).save();
+
+    if (!bike.description) {
+      bike.description = '';
+    }
 
     res.send(bike);
   });

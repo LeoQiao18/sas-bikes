@@ -8,7 +8,9 @@ const bikeSchema = new Schema({
   },
   color: { type: String },
   brand: { type: String },
-  description: { type: String }
+  description: { type: String },
+  image_url: { type: String },
+  cloudinary_public_id: { type: String }
 });
 
 mongoose.model('bikes', bikeSchema);

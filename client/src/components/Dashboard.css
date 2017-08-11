@@ -1,0 +1,9 @@
+.bike-image img {
+  display: block;
+}
+.bike-card {
+  padding: 10px 16px;
+}
+.bike-card p {
+  color: #999;
+}
