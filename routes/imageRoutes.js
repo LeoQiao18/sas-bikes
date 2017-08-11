@@ -2,6 +2,7 @@ const cloudinary = require('cloudinary');
 const Datauri = require('datauri');
 const multer = require('multer');
 const upload = multer({});
+const keys = require('../config/keys');
 
 module.exports = app => {
   app.post('/api/images', upload.single('file'), (req, res) => {
@@ -9,7 +10,7 @@ module.exports = app => {
     datauri.format('.png', req.file.buffer);
     cloudinary.v2.uploader.upload(
       datauri.content,
-      { folder: 'sas_bikes_dev' },
+      { folder: keys.cloudinaryImageFolder },
       (err, result) => {
         if (err) {
           res.status(400).send(err);
