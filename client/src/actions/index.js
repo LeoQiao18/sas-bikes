@@ -19,7 +19,7 @@ export const postBike = bike => async dispatch => {
 export const deleteBike = (bikeId, callback) => async dispatch => {
   const res = await axios.delete(`/api/bikes/${bikeId}`);
 
-  dispatch({ type: DELETE_BIKE, payload: res.data });
+  dispatch({ type: DELETE_BIKE, payload: res.data._id });
   if (callback) {
     callback();
   }
