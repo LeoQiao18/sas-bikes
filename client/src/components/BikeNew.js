@@ -79,11 +79,7 @@ class BikeNew extends React.Component {
 
     window.form = this.props.form;
 
-    const shortFormItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 7 }
-    };
-    const longFormItemLayout = {
+    const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 }
     };
@@ -99,7 +95,7 @@ class BikeNew extends React.Component {
         <h1 className="bike-new__title">Register a New Bike</h1>
         <Form onSubmit={this.handleSubmit} hideRequiredMark>
           {/* First Name */}
-          <FormItem {...shortFormItemLayout} label="First Name" hasFeedback>
+          <FormItem {...formItemLayout} label="First Name" hasFeedback>
             {getFieldDecorator('firstName', {
               rules: [
                 { required: true, message: 'Please enter your first name!' }
@@ -108,7 +104,7 @@ class BikeNew extends React.Component {
           </FormItem>
 
           {/* Last Name */}
-          <FormItem {...shortFormItemLayout} label="Last Name" hasFeedback>
+          <FormItem {...formItemLayout} label="Last Name" hasFeedback>
             {getFieldDecorator('lastName', {
               rules: [
                 { required: true, message: 'Please enter your last name!' }
@@ -117,7 +113,7 @@ class BikeNew extends React.Component {
           </FormItem>
 
           {/* Color */}
-          <FormItem {...shortFormItemLayout} label="Color" hasFeedback>
+          <FormItem {...formItemLayout} label="Color" hasFeedback>
             {getFieldDecorator('color', {
               rules: [
                 { required: true, message: 'Please enter color of bike!' }
@@ -126,7 +122,7 @@ class BikeNew extends React.Component {
           </FormItem>
 
           {/* Brand */}
-          <FormItem {...shortFormItemLayout} label="Brand" hasFeedback>
+          <FormItem {...formItemLayout} label="Brand" hasFeedback>
             {getFieldDecorator('brand', {
               rules: [
                 { required: true, message: 'Please enter brand of bike!' }
@@ -136,7 +132,7 @@ class BikeNew extends React.Component {
 
           {/* Description */}
           <FormItem
-            {...longFormItemLayout}
+            {...formItemLayout}
             label="Description"
             extra="(Optional, 100 characters max.)"
             hasFeedback
@@ -149,7 +145,7 @@ class BikeNew extends React.Component {
           </FormItem>
 
           {/* Image */}
-          <FormItem {...longFormItemLayout} label="Image">
+          <FormItem {...formItemLayout} label="Image">
             {getFieldDecorator('image', {
               valuePropName: 'fileList',
               getValueFromEvent: this.normFile,
