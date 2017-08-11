@@ -6,8 +6,8 @@ const Help = () => {
     <div>
       <h1 className="help__title">Need Help?</h1>
       <p>
-        If you need help or found a bug (not literally an insect...), please
-        contact Leo Qiao immediately.
+        If you need help or found a bug (not literally...), please contact Leo
+        Qiao immediately.
       </p>
       <br />
       <p>If you are interested in SAS web development, join the Coding Club!</p>
