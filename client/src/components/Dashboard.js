@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Image as CloudinaryImage } from 'cloudinary-react';
 import { Row, Col, Card, BackTop } from 'antd';
 import DeleteBikeButton from './DeleteBikeButton';
 import './Dashboard.css';
@@ -38,7 +39,12 @@ class Dashboard extends React.Component {
           >
             <Card bodyStyle={{ padding: 0 }}>
               <div className="bike-card__image">
-                <img alt="" width="100%" src={bike.image_url} />
+                <CloudinaryImage
+                  cloudName="lqiao"
+                  publicId={bike.cloudinary_public_id}
+                  width="500"
+                  crop="fit"
+                />
               </div>
               <div className="bike-card__content">
                 <h3>{`${bike.owner.firstName} ${bike.owner.lastName}`}</h3>

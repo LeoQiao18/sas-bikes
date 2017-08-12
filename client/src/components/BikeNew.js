@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Icon, Input, Upload, Button, message } from 'antd';
+import { Form, Icon, Input, Select, Upload, Button, message } from 'antd';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { postBike } from '../actions';
@@ -7,6 +7,7 @@ import { postBike } from '../actions';
 import './BikeNew.css';
 
 const FormItem = Form.Item;
+const Option = Select.Option;
 const Dragger = Upload.Dragger;
 
 class BikeNew extends React.Component {
@@ -118,7 +119,24 @@ class BikeNew extends React.Component {
               rules: [
                 { required: true, message: 'Please enter color of bike!' }
               ]
-            })(<Input placeholder="Please enter color of bike" />)}
+            })(
+              <Select
+                showSearch
+                optionFilterProp="children"
+                placeholder="Please enter color of bike"
+              >
+                <Option value="black">Black</Option>
+                <Option value="grey">Grey</Option>
+                <Option value="white">White</Option>
+                <Option value="red">Red</Option>
+                <Option value="orange">Orange</Option>
+                <Option value="Yellow">Yellow</Option>
+                <Option value="green">Green</Option>
+                <Option value="blue">Blue</Option>
+                <Option value="purple">Purple</Option>
+                <Option value="brown">Brown</Option>
+              </Select>
+            )}
           </FormItem>
 
           {/* Brand */}
