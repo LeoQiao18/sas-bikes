@@ -33,3 +33,22 @@
   text-align: center;
   margin-bottom: 16px;
 }
+
+.search-label:after {
+  content: ":";
+  margin: 0 8px 0 2px;
+  position: relative;
+  top: -0.5px;
+}
+
+.search-row {
+  margin-bottom: 16px;
+}
+
+.keyword-row {
+  align-items: center;
+}
+
+.keyword-input {
+  width: 200px;
+}

@@ -37,7 +37,6 @@ module.exports = app => {
   });
 
   app.delete('/api/bikes/:id', (req, res) => {
-    console.log(req.params.id);
     Bike.findByIdAndRemove(req.params.id, (err, bike) => {
       cloudinary.v2.uploader.destroy(
         bike.cloudinary_public_id,

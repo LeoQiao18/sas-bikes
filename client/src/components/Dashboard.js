@@ -1,11 +1,49 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { Image as CloudinaryImage } from 'cloudinary-react';
-import { Row, Col, Card, BackTop } from 'antd';
+import { Radio, Select, Row, Col, Card, BackTop } from 'antd';
 import DeleteBikeButton from './DeleteBikeButton';
 import './Dashboard.css';
 
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
+const Option = Select.Option;
+
 class Dashboard extends React.Component {
+  state = {
+    search: 'all',
+    keyword: undefined
+  };
+
+  renderSelectOptions() {
+    return _.map(this.props.bikes, this.state.search).map(value =>
+      <Option key={value} value={value}>
+        {value}
+      </Option>
+    );
+  }
+
+  renderSearch() {
+    if (this.props.bikes && this.state.search !== 'all') {
+      return (
+        <div className="search-row keyword-row">
+          <span className="search-label">Keyword</span>
+          <Select
+            showSearch
+            className="keyword-input"
+            optionFilterProp="children"
+            placeholder={`Please enter ${this.state.search} of bike`}
+            value={this.state.keyword}
+            onChange={value => this.setState({ keyword: value })}
+          >
+            {this.renderSelectOptions()}
+          </Select>
+        </div>
+      );
+    }
+  }
+
   renderContent() {
     const { bikes } = this.props;
     const colGrid = {
@@ -30,7 +68,13 @@ class Dashboard extends React.Component {
         </Col>
       );
     } else {
-      return this.props.bikes.map(bike => {
+      const { search, keyword } = this.state;
+      const filteredBikes =
+        search !== 'all' && keyword
+          ? _.filter(bikes, { [search]: keyword })
+          : bikes;
+
+      return filteredBikes.map(bike => {
         return (
           <Col
             {...colGrid}
@@ -74,6 +118,20 @@ class Dashboard extends React.Component {
     return (
       <div>
         <BackTop />
+        <div className="search-row">
+          <span className="search-label">Search by</span>
+          <RadioGroup
+            size="small"
+            defaultValue="all"
+            onChange={e =>
+              this.setState({ search: e.target.value, keyword: undefined })}
+          >
+            <RadioButton value="all">All</RadioButton>
+            <RadioButton value="color">Color</RadioButton>
+            <RadioButton value="brand">Brand</RadioButton>
+          </RadioGroup>
+        </div>
+        {this.renderSearch()}
         <Row gutter={16}>
           {this.renderContent()}
         </Row>

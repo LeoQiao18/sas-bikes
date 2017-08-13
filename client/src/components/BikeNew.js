@@ -125,16 +125,16 @@ class BikeNew extends React.Component {
                 optionFilterProp="children"
                 placeholder="Please enter color of bike"
               >
-                <Option value="black">Black</Option>
-                <Option value="grey">Grey</Option>
-                <Option value="white">White</Option>
-                <Option value="red">Red</Option>
-                <Option value="orange">Orange</Option>
+                <Option value="Black">Black</Option>
+                <Option value="Grey">Grey</Option>
+                <Option value="White">White</Option>
+                <Option value="Red">Red</Option>
+                <Option value="Orange">Orange</Option>
                 <Option value="Yellow">Yellow</Option>
-                <Option value="green">Green</Option>
-                <Option value="blue">Blue</Option>
-                <Option value="purple">Purple</Option>
-                <Option value="brown">Brown</Option>
+                <Option value="Green">Green</Option>
+                <Option value="Blue">Blue</Option>
+                <Option value="Purple">Purple</Option>
+                <Option value="Brown">Brown</Option>
               </Select>
             )}
           </FormItem>
