@@ -124,6 +124,10 @@ class BikeNew extends React.Component {
                 showSearch
                 optionFilterProp="children"
                 placeholder="Please enter color of bike"
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0}
               >
                 <Option value="Black">Black</Option>
                 <Option value="Grey">Grey</Option>

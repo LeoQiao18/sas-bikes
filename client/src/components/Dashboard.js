@@ -34,6 +34,10 @@ class Dashboard extends React.Component {
             className="keyword-input"
             optionFilterProp="children"
             placeholder={`Please enter ${this.state.search} of bike`}
+            filterOption={(input, option) =>
+              option.props.children
+                .toLowerCase()
+                .indexOf(input.toLowerCase()) >= 0}
             value={this.state.keyword}
             onChange={value => this.setState({ keyword: value })}
           >
