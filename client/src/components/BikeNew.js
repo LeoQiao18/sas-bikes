@@ -132,7 +132,11 @@ class BikeNew extends React.Component {
                 <Option value="Black">Black</Option>
                 <Option value="Grey">Grey</Option>
                 <Option value="White">White</Option>
+                <Option value="Ivory">Ivory</Option>
+                <Option value="Silver">Silver</Option>
+                <Option value="Gold">Gold</Option>
                 <Option value="Red">Red</Option>
+                <Option value="Pink">Pink</Option>
                 <Option value="Orange">Orange</Option>
                 <Option value="Yellow">Yellow</Option>
                 <Option value="Green">Green</Option>
