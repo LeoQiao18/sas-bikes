@@ -30,7 +30,7 @@ class BikeNew extends React.Component {
     if (this.state.uploadedPublicId) {
       this.props.form.validateFields((err, values) => {
         if (!err) {
-          const { firstName, lastName, color, brand } = values;
+          const { firstName, lastName, classYear, color, brand } = values;
           const description = values.description ? values.description : '';
           const {
             public_id: cloudinary_public_id,
@@ -39,6 +39,7 @@ class BikeNew extends React.Component {
           const data = {
             firstName,
             lastName,
+            classYear,
             color,
             brand,
             description,
@@ -111,6 +112,15 @@ class BikeNew extends React.Component {
                 { required: true, message: 'Please enter your last name!' }
               ]
             })(<Input placeholder="Please enter your last name" />)}
+          </FormItem>
+
+          {/* Class */}
+          <FormItem {...formItemLayout} label="Class Year" hasFeedback>
+            {getFieldDecorator('classYear', {
+              rules: [
+                { required: true, message: 'Please enter your class year!' }
+              ]
+            })(<Input placeholder="Please enter your class year" />)}
           </FormItem>
 
           {/* Color */}

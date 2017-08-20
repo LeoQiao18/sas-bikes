@@ -13,6 +13,7 @@ module.exports = app => {
     const {
       firstName,
       lastName,
+      classYear,
       color,
       brand,
       description,
@@ -21,7 +22,7 @@ module.exports = app => {
     } = req.body;
 
     const bike = await new Bike({
-      owner: { firstName, lastName },
+      owner: { firstName, lastName, classYear },
       color,
       brand,
       description,
