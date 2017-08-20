@@ -118,9 +118,13 @@ class BikeNew extends React.Component {
           <FormItem {...formItemLayout} label="Class Year" hasFeedback>
             {getFieldDecorator('classYear', {
               rules: [
-                { required: true, message: 'Please enter your class year!' }
+                {
+                  required: true,
+                  len: 4,
+                  message: 'Please enter your class year! (eg. 2018)'
+                }
               ]
-            })(<Input placeholder="Please enter your class year" />)}
+            })(<Input placeholder="Please enter your class year, eg. 2018" />)}
           </FormItem>
 
           {/* Color */}
