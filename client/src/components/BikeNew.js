@@ -120,11 +120,26 @@ class BikeNew extends React.Component {
               rules: [
                 {
                   required: true,
-                  len: 4,
                   message: 'Please enter your class year! (eg. 2018)'
                 }
               ]
-            })(<Input placeholder="Please enter your class year, eg. 2018" />)}
+            })(
+              <Select
+                showSearch
+                optionFilterProp="children"
+                placeholder="Please enter your class year"
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0}
+              >
+                <Option value="Faculty">Faculty</Option>
+                <Option value="2018">2018</Option>
+                <Option value="2019">2019</Option>
+                <Option value="2020">2020</Option>
+                <Option value="2021">2021</Option>
+              </Select>
+            )}
           </FormItem>
 
           {/* Color */}
